@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport" />
+    <title>essjs-最专业的汽车经销商</title>
+    <link rel="stylesheet" type="text/css" href="statics/home/css/b612-20171228.css" />
+</head>
+<body>
+<div class="b612-viewer">
+	<!--<div class="b612-logo">
+		<a class="sprite" href="#">
+			<h1 class="blind">essjs</h1>
+			<p class="home sprite on"><span class="blind"></span></p>
+		</a>
+		<a class="menu1 sprite" href="#"><span class="blind"></span></a>
+		<a class="menu2 sprite" href="#"><span class="blind"></span></a>
+	</div>-->
+    <div class="b612-util">
+       
+    </div>
+    <div class="b612-wrap fullpage-wrapper">
+        <section class="section section0">
+            <div class="container">
+                <div class="contents">
+                    <h1 class="section0-logo sprite"><span class="blind">essjs-最专业的汽车经销商</span></h1>
+                    <p class="sub-text">essjs<br />最专业的汽车经销商</p>
+                    <div class="section0-btn">
+                    </div>
+                </div>
+            </div>
+        </section><!-- //section0  -->
+
+        <section class="section section1">
+            <div class="container">
+                <div class="bg-back"></div>
+                <div class="bg-front"></div>
+                <div class="container">
+                    <h3 class="section-title">添加微信好友<br />快速了解行业前沿资讯！</h3>
+                </div>
+            </div>
+        </section><!-- //section1  -->
+        <section class="section section2">
+            <div class="container">
+                <div class="bg-back"></div>
+                <div class="bg-front"></div>
+                <div class="container">
+                    <h3 class="section-title">专业的服务<br />就找essjs<br class="mo-only" />为您全程保驾护航</h3>
+                </div>
+            </div>
+        </section><!-- //section2  -->
+
+<section class="section section3">
+            <div class="container">
+                <div class="bg-back"></div>
+                <div class="bg-front"></div>
+                <div class="container">
+                    <h3 class="section-title">全网最低价格<br />助力你快速购入豪车</h3>
+                </div>
+            </div>
+        </section><!-- //section3  -->
+        <section class="section section5">
+            <div class="container">
+                <div class="bg-back"></div>
+                <div class="bg-front"></div>
+                <div class="container">
+                    <h3 class="section-title">请联系我们<br />了解我们<br class="mo-only" />选择我们</h3>
+                </div>
+            </div>
+        </section><!-- //section5  -->
+
+        <section class="section section4">
+            <h2 class="blind"></h2>
+            <div class="container">
+                <div class="footer-center">
+                    <div class="b612-qrcode sprite"></div>
+                    <p class="footer-comment">让购车变得更加愉悦<br />国内豪车买入的圣地</p>
+                    <ul class="btn-store">
+                       
+                    </ul>
+                </div>
+                <div class="footer-bottom">
+    <address>天津港（天津）有限公司<span></span>津ICP备0814355号-14<br />天津市金水区金桐西路10号远洋光华国际C座5层<br />联系电话：0100-65043220<span></span>联系邮箱：tianjingang@163.com</address>
+    <div class="zh-sns">
+        <ul class="zh-sns-list">
+           
+        </ul>
+    </div>
+    <p class="info">
+        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502034741" style="text-decoration:none;color:inherit;">
+            <span class="ico-c sprite"></span>津公网安备34510502034741号
+        </a>
+    </p>
+</div>
+            </div>
+        </section><!-- //b612-5  -->
+    </div><!-- //b612-wrap  -->
+</div>
+<script type="text/javascript" src="statics/home/js/b612-web-20171227.min.js"></script>
+<script type="text/javascript">
+
+var ua = navigator.userAgent;
+var obj = {};
+obj.platform = {
+	isAndroid: /Android;?[\s\/]+([\d.]+)?/.test(ua),
+	isIOS: /(iPad|iPod|iPhone).*OS/.test(ua),
+	isWeixin: /MicroMessenger/i.test(ua),
+	isMobileQQ: /QQ\//i.test(ua),
+	isQzone: /Qzone\//i.test(ua)
+};
+
+var TIMEOUT = 1600;
+var storeUrl = 'https://lnk0.com/easylink/ELcEhsE9';
+var b612Scheme = 'b612cn://';
+var b612UniversalLink = 'http://ul.b612kaji.com/app/go?storeURL=https://lnk0.com/easylink/ELcEhsE9';
+
+$(document).ready(function() {
+
+	if (obj.platform.isIOS) {
+
+		if (obj.platform.isWeixin) {
+			$("#run_or_download").attr("href", b612UniversalLink);
+
+		} else {
+			$("#run_or_download").on("click", function(event) {
+				event.preventDefault();
+				launchIOS(b612Scheme, storeUrl, TIMEOUT);
+			});
+		}
+
+	} else {
+		$("#run_or_download").on("click", function(event) {
+			event.preventDefault();
+			launchAndroid(b612Scheme, storeUrl, TIMEOUT);
+		});
+	}	
+});
+
+function launchIOS(scheme, storeUrl, timeout) {
+	window.location = scheme;
+	setTimeout(function() {
+		window.location.replace(storeUrl);
+	}, timeout);
+}
+
+function launchAndroid(scheme, storeUrl, timeout) {
+	var iframe = document.createElement("iframe");
+	iframe.style.display = "none";
+	iframe.src = scheme;
+	document.body.appendChild(iframe);
+	window.setTimeout(function() {
+		document.body.removeChild(iframe);
+	}, 0);
+	window.setTimeout(function() {
+		window.location = storeUrl;
+	}, timeout);
+}
+</script>
+
+
+
+</body></html>
